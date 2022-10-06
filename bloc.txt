@@ -1,0 +1,9 @@
+-Crear  las tablas del devolución cliente con su correspondiente detalle
+ crear la tabla de dev provedor con su detalle
+
+-Actualizar inventario por devoluciones
+
+-Actualizar los subtotales y totales de las devoluciones verificando la aplicación de IVA
+NOTA: RECUERDE QUE NINGUNA EMPRESA LE DEVOLVERÁ DINERO SOLO HARA EL CAMBIO  DEL PRODUCTO, O LE ENTREGARA UN PRODUCTO
+SIMILAR CON EL MISMO PRECIO SI EL PRODUCTO ESTA DESCONTINUADO
+
