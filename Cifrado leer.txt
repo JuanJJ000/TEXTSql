@@ -1,0 +1,13 @@
+encryptbypassphrase
+
+decryptbypassphrase
+
+pwdcompare 
+
+pwEncrypt
+
+pwDEncrypt
+
+Cifrado del Cesar
+
+Cifrado de Playfair
