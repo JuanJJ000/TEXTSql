@@ -1,0 +1,199 @@
+-create database Comtech
+--go
+--use Comtech
+--go
+create table [User](
+Id int primary key Identity(1,1),
+UserName varchar(80),
+[Password] varchar(80),
+Rol varchar(80),
+Estatus varchar(80)
+)
+go
+create table Movement(
+Id int primary key identity(1,1),
+MovementDate date,
+IdUser int
+)
+go
+create table Loss(
+Id int primary key identity(1,1),
+AccountType varchar(80),
+Amount money,
+IdMovement int
+)
+go
+create table Gain(
+Id int primary key identity(1,1),
+AccountType varchar(80),
+Amount money,
+IdMovement int
+)
+go
+create table Asset(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Type] varchar(80),
+Amount money,
+Isdepreciable int,
+IdMovement int
+)
+go
+create table Passive(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Type] varchar(80),
+Amount money,
+IdMovement int
+)
+go
+create table Capital(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Type] varchar(80),
+Amount money,
+IdMovement int
+)
+go
+create table Employee(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[LastName] varchar(80),
+[Address] varchar(80),
+Email varchar(80),
+IdMovement int,
+Salary money
+)
+go
+create table Supplier(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Address] varchar(80),
+Email varchar(80),
+Phone varchar(40),
+IdProduct int
+)
+go
+create table PurchaseDetails(
+IdSupplier int,
+IdMovement int,
+IdProduct int,
+Quantity int,
+DebtPorcentage decimal(18,4)
+)
+go
+create table Customer(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Address] varchar(80),
+City varchar(80),
+Phone varchar(80),
+IdMovement int,
+)
+go
+create table [Order](
+Id int primary key identity(1,1),
+IdCustomer int,
+IdEmployee int,
+OrderDate date,
+RequieredDate date,
+)
+go
+create table OrderDetails(
+Id int primary key identity(1,1),
+IdProduct int,
+Customer int,
+SalePrice money,
+Quantity int,
+DebtPercentage decimal
+)
+go
+create table Product(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+IdSupplier int,
+UnitInStock int,
+UnitPrice money,
+UnitOnOrder int,
+Discontinued bit,
+IdCategory int
+)
+go
+create table Category(
+Id int primary key identity(1,1),
+[Name] varchar(80),
+[Description] varchar(80)
+)
+
+Alter table Product
+add foreign key(IdCategory)
+references Category(Id)
+
+Alter table OrderDetails
+Add foreign key(IdProduct)
+references Product(Id)
+
+Alter table [Order]
+Add foreign key(IdCustomer)
+references Customer(Id)
+
+Alter table [Order]
+Add foreign key(IdEmployee)
+references Employee(Id)
+
+Alter table Customer
+Add foreign key(IdMovement)
+references Movement(Id)
+
+Alter table PurchaseDetails
+Add foreign key(IdMovement)
+references Movement(Id)
+
+Alter table gain
+Add foreign key(IdMovement)
+references Movement(Id)
+
+Alter table loss
+Add foreign key(IdMovement)
+references Movement(Id)
+
+Alter table PurchaseDetails
+Add foreign key(IdSupplier)
+references Supplier(Id)
+
+Alter table PurchaseDetails
+Add foreign key(IdProduct)
+references Product(Id)
+
+Alter table Supplier
+Add foreign key(IdProduct)
+references Product(Id)
+
+Alter table Employee
+Add foreign key(IdMovement)
+references Movement(Id)
+
+Alter table Capital
+Add foreign key(IdMovement)
+references Movement
+
+Alter table Passive
+Add foreign key(IdMovement)
+references Movement
+
+Alter table Asset
+Add foreign key(IdMovement)
+references Movement
+
+Alter table Movement
+Add foreign key(IdUser)
+references [User]
+
+
+
+dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Chinook" Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet ef dbcontext scaffold ... --context-dir Data --output-dir Models
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+dotnet ef dbcontext scaffold "Data Source=(localdb)\(OnlyFran) Catalog=TestMigration" Microsoft.EntityFrameworkCore.SqlServer
