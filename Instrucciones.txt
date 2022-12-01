@@ -1,0 +1,12 @@
+Sistema de Venta de ticket y productos en cinemark
+
+Considere que el cine tiene varias salas
+y en cada sala hay varias tandas al dia. Asuma que la capacidad maxima del cine son 200 asientos
+el sistema debe valorar la disponibilidad de espacio en determinado horario
+el usuario del cine tambien puede comprar en el cafetin los combos o productos individuales
+
+-Crear tablas, procedimiento de almacenado,
+ funciones, triggers, y transacciones, manejando las excepciones para gestionar dicho sistema
+
+hora de inicio 09:07
+hora de fin    11:07

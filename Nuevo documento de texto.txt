@@ -1,0 +1,21 @@
+En venta de productos se tendra una bandera de si esta presente un combo en la venta o no
+para controlar la individualidad
+
+Los combos se pueden ya predeterminados
+
+Se debe limitar la cantidad de asientos
+
+Las salas tiene 200 asientos
+
+Las salas pueden aumentar 
+
+Las tandas se refieren al tiempo que demoran las peliculas
+
+Al ir vendiendo tickets los asientos se van a ir llenando hasta que este llena la sala
+y cuando este llena no se podra seguir vendiendo tickets
+pero si se cambia de tanda los asientos se vaciarán y se podrá volver a vender tickets
+
+Las tandas son peliculas asi que cada dia las tandas podrian cambiar
+esto correlacionado a las salas, es decir las salas tendras varias tandas de un dia
+
+Los ticket son para ciertas tandas porque son peliculas
